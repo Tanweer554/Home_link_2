@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public int AddSub(int input1,int input2)
+    {
+        //Read only region end
+        //Write code here
+		int sum1=0,sum2=0,result1=0;
+		int[]intarr=new int[input1];
+		int first=input1;
+		for(int i=0;i<input1;i++){
+			intarr[i]=first;
+			first--;
+		}
+		
+        if(input2==1){
+			for(int i=1;i<input1;i=i+2)
+			{
+				sum1+=intarr[i];
+			}
+			for(int i=2;i<input1;i=i+2){
+				sum2+=intarr[i];
+			}
+			result1=input1+(sum2-sum1);
+		}
+		else  if(input2==2){
+			for(int i=1;i<input1;i=i+2)
+			{
+				sum1+=intarr[i];
+			}
+			for(int i=2;i<input1;i=i+2){
+				sum2+=intarr[i];
+			}
+			result1=input1+(sum1-sum2);
+		}
+		return result1;
+    }
+}
