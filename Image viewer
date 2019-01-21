@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public int findNumberOfImages(int[] input1,char[] input2)
+    {
+        //Read only region end
+        //Write code here
+        int m=input1[0];
+		int n=input1[1];
+		int o=input1[2];
+		int p=input1[3];
+		int sum=0,count=0;
+		if(input2[0]=='h' && o>p){
+			count=0;
+		}
+		else{
+			for(int i=0;i<m;i++){
+				if(i==0){
+					if(input2[i]=='v'){
+						sum+=1;
+					}
+					if(input2[i]=='h'){
+						sum+=1+o;
+					}
+				}
+				else{
+					if(input2[i]=='v'){
+						sum=1+n+sum;
+					}
+					if(input2[i]=='h'){
+						sum=1+n+o+sum;
+					}
+				}
+				if(sum<=p){
+					count++;
+				}
+				else{
+					break;
+				}
+			}
+		}
+		return count;
+    }
+}
