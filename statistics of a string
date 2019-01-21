@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public string StringStatistics(string input1)
+    {
+        //Read only region end
+        int num_count=0,sum_num=0;
+		int alp_count=0,j=0;
+		string z="ZERO";
+		string s="";
+	
+		for(int i=0;i<input1.Length;i++){
+			if(char.IsDigit(input1[i])){
+				num_count++; 
+				int a=int.Parse(input1[i].ToString());
+				sum_num+=a;
+			}
+			else if(char.IsLetter(input1[i])){
+				alp_count++;
+				s+=input1[i];
+			}
+		
+		}
+			Console.WriteLine("num_count:{0}",num_count);
+			Console.WriteLine("alp_count:{0}",alp_count);
+			Console.WriteLine("sum_num:{0}",sum_num);
+			if(num_count==0 || alp_count==0 || sum_num==0){
+				return z;
+			}
+
+		Console.WriteLine("string:{0}",s);
+		string result=alp_count.ToString()+s+sum_num.ToString();
+			Console.WriteLine("result:{0}",result);
+			return result;
+    }
+}
