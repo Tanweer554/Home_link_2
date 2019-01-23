@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public string findSequence(int input1,string[] input2,int[] input3)
+    {
+        //Read only region end
+        //Write code here
+        string str="";
+		int[] arr=new int[input1];
+		for(int i=0;i<input1;i++){
+			arr[i]=input3[i];
+		}
+		Array.Sort(arr);
+		int cindex=0,maxIndex=0,maxlen=0,count=1;
+		for(int j=0;j<input1-1;j++){
+			if((arr[j])+1==arr[j+1]){
+				count++;
+				if(count==2){
+					cindex=j;
+				}
+			}
+			else{
+				if(count>maxlen && count!=1){
+					maxIndex=cindex;
+					maxlen=count;
+				}
+				count=1;
+			}
+		}
+					if(count>maxlen && count!=1){
+					maxIndex=cindex;
+					maxlen=count;
+				    }
+		if(maxlen<3){
+		str="NONE"+":";	
+		}
+		else{
+			for(int k=maxIndex;k<(maxIndex+maxlen);k++){
+				for(int g=0;g<input1;g++){
+					if(arr[k]==input3[g]){
+						str+=input2[g]+":";
+					}
+				}
+			}
+		}
+		return str.Substring(0,str.Length-1);
+    }
+}
