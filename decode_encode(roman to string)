@@ -1,0 +1,134 @@
+using System;
+using System.Collections.Generic;
+
+//Read only region start
+public class UserMainCode
+{
+    public string FindMessage(string input1)
+    {
+        //Read only region end
+        //Write code here
+            string result = "";
+            string[] str = input1.Split(' ');
+		    for(int i = 0; i<str.Length; i ++)
+		    {
+			    result += (char)(getInt(str[i]));
+		    }
+		    return result;
+        }
+    static int getInt(string n)
+    {
+    int s = 0;
+    if (n.StartsWith("C"))
+    {
+        if (n.Length > 1)
+            s += 100 + getInt(n.Substring(1));
+        else
+            s += 100;
+    }
+    else if (n.StartsWith("XC"))
+    {
+        if (n.Length > 2)
+            s += 90 + getInt(n.Substring(2));
+        else
+            s += 90;
+    }
+    else if (n.StartsWith("LXXX"))
+    {
+        if (n.Length > 4)
+            s += 80 + getInt(n.Substring(4));
+        else
+            s += 80;
+    }
+    else if (n.StartsWith("LXX"))
+    {
+        if (n.Length > 3)
+            s += 70 + getInt(n.Substring(3));
+        else
+            s += 70;
+    }
+    else if (n.StartsWith("LX"))
+    {
+        if (n.Length > 2)
+            s += 60 + getInt(n.Substring(2));
+        else
+            s += 60;
+    }
+    else if (n.StartsWith("L"))
+    {
+        if (n.Length > 1)
+            s += 50 + getInt(n.Substring(1));
+        else
+            s += 50;
+    }
+    else if (n.StartsWith("XL"))
+    {
+        if (n.Length > 2)
+            s += 40 + getInt(n.Substring(2));
+        else
+            s += 40;
+    }
+    else if (n.StartsWith("XXX"))
+    {
+        if (n.Length > 3)
+            s += 30 + getInt(n.Substring(3));
+        else
+            s += 30;
+    }
+    else if (n.StartsWith("XX"))
+    {
+        if (n.Length > 2)
+            s += 20 + getInt(n.Substring(2));
+        else
+            s += 20;
+    }
+    else if (n.StartsWith("X"))
+    {
+        if (n.Length > 1)
+            s += 10 + getInt(n.Substring(1));
+        else
+            s += 10;
+    }
+    else
+    {
+        switch (n)
+        {
+            case "I":
+                s += 1;
+                break;
+            case "II":
+                s += 2;
+                break;
+            case "III":
+                s += 3;
+                break;
+            case "IV":
+                s += 4;
+                break;
+            case "V":
+                s += 5;
+                break;
+            case "VI":
+                s += 6;
+                break;
+            case "VII":
+                s += 7;
+                break;
+            case "VIII":
+                s += 8;
+                break;
+            case "IX":
+                s += 9;
+                break;
+            case "X":
+                s += 10;
+                break;
+            default:
+                break;
+        }
+
+    }
+    return s;
+    }
+      
+    }
