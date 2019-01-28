@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lb
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+                int[] a = { 1, 2, 4, 6, 3, 5, 2, 4, 6, 8, 9, 11, 13, 14, 16, 18, 20, 21, 28, 30, 32, 34 };
+                int count = 0, max = 0, p = 0, c_index = 0, sum = 0;
+                int input2 = 22;
+                for (int i = 0; i < input2; i++)
+                {
+                    if (a[i] % 2 == 0)
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        if (count > max)
+                        {
+                            max = count;
+                        }
+                        count = 0;
+                    }
+                }
+                if (count > max)
+                {
+                    max = count;
+                }
+                /*  1, 2, 4, 6, 3, 5, 2, 4, 6, 8, 9, 11, 13, 14, 16, 18, 20, 21, 28, 30, 32, 34  */
+                for (int j = 0; j < input2; j++)
+                {
+                    if (a[j] % 2 == 0)
+                    {
+                        p++;
+                        c_index = j;
+                    }
+                    else
+                    {
+                        if (p == max)
+                        {
+                            for (int k = c_index; k >= c_index - p + 1; k--)
+                            {
+                                sum += a[k];
+                            }
+                        }
+                        p = 0;
+                    }
+                }
+                if (p == max)
+                {
+                    for (int k = c_index; k >= c_index - p + 1; k--)
+                    {
+                        sum += a[k];
+                    }
+                }
+                Console.WriteLine(sum);
+                Console.Read();
+            }
+
+
+        }
+    }
+
+
