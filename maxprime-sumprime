@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace @new
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr1 = { 2, 4, 5, 7, 9, 10, 11, 12, 13, 14 };
+            int[] arr2 = new int[10];
+            int m = 0;
+            int sum = 0;
+            int count = 0;
+            for(int i = 0; i < arr1.Length; i++)
+            {
+                for(int k = 2; k < arr1[i]; k++)
+                {
+                    if (arr1[i] % k == 0)
+                    {
+                        count++;
+                    }
+                }
+                if (count == 0)
+                {
+                    arr2[m++] = arr1[i];
+                }
+                count = 0;
+            }
+            for(int j = 0; j < arr2.Length; j++)
+            {
+                sum += arr2[j];
+            }
+            int max = arr2.Max();
+            Console.WriteLine(max - sum);
+        }
+
+    }
+}
